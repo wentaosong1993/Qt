@@ -4,6 +4,7 @@
 Content::Content(QWidget *parent)
     :QFrame(parent)
 {
+	// 上面（左+右）
     stack = new QStackedWidget(this);
     stack->setFrameStyle(QFrame::Panel | QFrame::Raised);
     baseInfo = new BaseInfo();
@@ -13,6 +14,8 @@ Content::Content(QWidget *parent)
     stack->addWidget(contact);
     stack->addWidget(detail);
 
+
+	//最小边
     amendBtn = new QPushButton(QStringLiteral("修改"));
     closeBtn = new QPushButton(QStringLiteral("关闭"));
     QHBoxLayout *btnLayout = new QHBoxLayout;
