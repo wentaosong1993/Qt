@@ -7,10 +7,7 @@ TcpClientSocket::TcpClientSocket(QObject *parent)
 }
 
 
-TcpClientSocket::TcpClientSocket()
-{
 
-}
 
 
 void TcpClientSocket::dataReceived()
