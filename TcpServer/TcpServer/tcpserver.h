@@ -8,6 +8,8 @@
 #include <QPushButton>
 #include <QGridLayout>
 
+#include "server.h"
+
 class TcpServer : public QDialog
 {
     Q_OBJECT
@@ -22,6 +24,12 @@ private:
     QLineEdit *PortLineEdit;
     QPushButton *CreateBtn;
     QGridLayout *mainLayout;
+
+    int port;
+    Server *server;
+public slots:
+    void slotCreateServer();
+    void updateServer(QString msg, int length);
 };
 
 #endif // TCPSERVER_H

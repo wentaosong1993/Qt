@@ -20,3 +20,16 @@ TcpServer::~TcpServer()
 
 }
 
+void TcpServer::slotCreateServer()
+{
+    server = new Server(this,port);
+    connect(server,SIGNAL(updateServer(QString,int)),this,SLOT(updateServer(QString,int)));
+    CreateBtn->setEnabled(false);
+
+}
+
+void TcpServer::updateServer(QString msg, int length)
+{
+    ContentListWidget->addItem(msg.left(length));
+}
+

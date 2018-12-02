@@ -36,7 +36,7 @@ TcpClient::TcpClient(QWidget *parent)
     connect(enterBtn,SIGNAL(clicked()),this,SLOT(slotEnter()));
     connect(sendBtn,SIGNAL(clicked()),this,SLOT(slotSend()));
 
-    sendBtn->setEnabled(false);
+    sendBtn->setEnabled(true);
 
 
 }
