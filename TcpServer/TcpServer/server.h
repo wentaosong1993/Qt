@@ -14,6 +14,7 @@ public:
 
 signals:
     void updateServer(QString,int );
+
 public slots:
     void updateClients(QString msg, int length);
     void slotDisconected(int descriptor);

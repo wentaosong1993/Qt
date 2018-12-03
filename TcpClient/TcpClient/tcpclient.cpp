@@ -6,14 +6,17 @@
 TcpClient::TcpClient(QWidget *parent)
     : QDialog(parent)
 {
+    tcpSocket = NULL;
     setWindowTitle(QStringLiteral("TCP Client"));
     contentListWidget = new QListWidget;
     sendLineEdit = new QLineEdit;
     sendBtn = new QPushButton(QStringLiteral("发送:"));
     userNameLabel = new QLabel(QStringLiteral("用户名:"));
     userNameLineEdit = new QLineEdit;
+    userNameLineEdit->setText(QStringLiteral("涛哥"));
     serverIPLabel = new QLabel(QStringLiteral("服务器地址:"));
     serverIPLineEdit = new QLineEdit;
+    serverIPLineEdit->setText(QStringLiteral("127.0.0.1"));
     portLabel = new QLabel(QStringLiteral("端口:"));
     portLineEdit = new QLineEdit;
     enterBtn = new QPushButton(QStringLiteral("进入聊天室"));
@@ -113,7 +116,11 @@ void TcpClient::dataReceived()
 
 void TcpClient::slotSend()
 {
-    if(sendLineEdit->text() == "")
+//    if(sendLineEdit->text() == "")
+//    {
+//        return;
+//    }
+    if(NULL == tcpSocket)
     {
         return;
     }

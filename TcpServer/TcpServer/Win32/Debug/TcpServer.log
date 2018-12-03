@@ -1,1 +1,4 @@
-﻿  TcpServer.vcxproj -> F:\GitHubRepository\Qt\TcpServer\TcpServer\debug\TcpServer.exe
+﻿  server.cpp
+  tcpserver.cpp
+  TcpServer.vcxproj -> D:\GitHubRepository\Qt\TcpServer\TcpServer\debug\TcpServer.exe
+  TcpServer.vcxproj -> debug\TcpServer.pdb (Full PDB)
