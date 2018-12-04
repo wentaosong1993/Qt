@@ -10,7 +10,7 @@ TimeServer::TimeServer(QObject *parent)
 
 void TimeServer::incomingConnection(int socketDescriptor)
 {
-    TimeThread *thread = new TimeThread(socketDescriptor,0);
+    TimeThread *thread = new TimeThread(socketDescriptor,0); //创建线程
     connect(thread,SIGNAL(finished()),dlg,SLOT(slotShow()));
     connect(thread,SIGNAL(finished()),thread,SLOT(deleteLater()),Qt::DirectConnection);
     thread->start();

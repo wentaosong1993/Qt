@@ -12,7 +12,7 @@ TimeThread::TimeThread(int socketDescriptor, QObject *parent)
 
 void TimeThread::run()
 {
-    QTcpSocket tcpSocket;
+    QTcpSocket tcpSocket; //创建通信套接字
     if(!tcpSocket.setSocketDescriptor(socketDescriptor))
     {
         emit error(tcpSocket.error());
@@ -23,7 +23,7 @@ void TimeThread::run()
     out.setVersion(QDataStream::Qt_4_3);
     uint time2u = QDateTime::currentDateTime().toTime_t();
     out << time2u;
-    tcpSocket.write(block);
-    tcpSocket.disconnectFromHost();
-    tcpSocket.waitForDisconnected();
+    tcpSocket.write(block); //发送当前服务器端时间
+    tcpSocket.disconnectFromHost(); //准备关闭当前通信套接字
+    tcpSocket.waitForDisconnected(); //等待关闭
 }

@@ -6,6 +6,7 @@
 
 class TimeThread : public QThread
 {
+	Q_OBJECT
 public:
     TimeThread(int socketDescriptor,QObject *parent = Q_NULLPTR);
     void run();

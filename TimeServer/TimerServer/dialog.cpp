@@ -22,14 +22,14 @@ Dialog::Dialog(QWidget *parent)
     connect(quitBtn,SIGNAL(clicked()),this,SLOT(close()));
 
     count = 0;
-    timeServer = new TimeServer(this);
+    timeServer = new TimeServer(this); //创建监听套接字
     if(!timeServer->listen())
     {
         QMessageBox::critical(this,QStringLiteral("多线程时间服务器"),QStringLiteral("无法启动服务器：%1.").arg(timeServer->errorString()));
         close();
         return;
     }
-    label1->setText(QStringLiteral("服务器端口: %1.").arg(timeServer->serverPort()));
+    label1->setText(QStringLiteral("服务器端口: %1.").arg(timeServer->serverPort())); //返回监听的端口号
 }
 
 Dialog::~Dialog()
