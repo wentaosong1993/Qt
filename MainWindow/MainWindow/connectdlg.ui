@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>QSqlConnectionDialogUi</class>
- <widget class="QDialog" name="QSqlConnectionDialogUi">
+ <class>ConnectDlg</class>
+ <widget class="QDialog" name="ConnectDlg">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -162,7 +162,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEdit"/>
+               <widget class="QLineEdit" name="status_lineEdit"/>
               </item>
              </layout>
             </item>

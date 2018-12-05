@@ -8,6 +8,7 @@
 class QSqlError;
 namespace Ui {
 class ConnectDlg;
+class QSqlConnectionDialogUi;
 }
 
 class ConnectDlg : public QDialog
@@ -35,7 +36,7 @@ private slots:
 
 private:
     Ui::ConnectDlg *ui;
-    Ui::QSqlConnectionDialogUi ui;
+//    Ui::QSqlConnectionDialogUi ui;
 };
 
 #endif // CONNECTDLG_H
