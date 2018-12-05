@@ -181,12 +181,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="connectdlg.cpp" />
+    <ClCompile Include="editdialog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="connectdlg.h">
     </QtMoc>
+    <ClInclude Include="editdialog.h" />
     <QtMoc Include="mainwindow.h">
     </QtMoc>
   </ItemGroup>

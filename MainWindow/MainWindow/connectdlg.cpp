@@ -2,6 +2,7 @@
 #include "ui_connectdlg.h"
 #include <QSqlDatabase>
 #include <QtSql>
+#include <QDebug>
 
 ConnectDlg::ConnectDlg(QWidget *parent) :
     QDialog(parent),
@@ -66,25 +67,57 @@ QSqlError ConnectDlg::addConnection(const QString &driver, const QString &dbName
 void ConnectDlg::createDB()
 {
     QSqlQuery query;
-    query.exec("create table factory (id int primary key,manufactory varchar(40),address varchar(40))");
-    query.exec(QObject::tr("insert into factory values(1,'一起大众','长春')"));
-    query.exec(QObject::tr("insert into factory values(2,'二汽神龙','武汉')"));
-    query.exec(QObject::tr("create table cars (carid int primary key,name varchar(50),factoryid int,year int,foreign key(factoryid) references factory)"));
+	//query.exec(QStringLiteral("create table factory (id int primary key,manufactory varchar(60),address varchar(60))"));
+	//query.exec(QStringLiteral("insert into factory values(1,'一汽大众','长春')"));
+	//query.exec(QStringLiteral("insert into factory values(2,'二汽神龙','武汉')"));
+	//query.exec(QStringLiteral("insert into factory values(3,'一起大众','长春')"));
+	//query.exec(QStringLiteral("insert into factory values(4,'二汽神龙','武汉')"));
+	//query.exec(QStringLiteral("create table cars (carid int primary key,name varchar(50),factoryid int,year int)"));
+	//query.exec(QStringLiteral("insert into cars values(1,'奥迪A6',1,2005)"));
+	//query.exec(QStringLiteral("insert into cars values(2,'捷达',1,1993)"));
+	//query.exec(QStringLiteral("insert into cars values(3,'宝来',1,2000)"));
+	//query.exec(QStringLiteral("insert into cars values(4,'毕加索',2,1999)"));
+	//query.exec(QStringLiteral("insert into cars values(5,'富康',2,2004)"));
+	//query.exec(QStringLiteral("insert into cars values(6,'标志307',2,2001)"));
+	//query.exec(QStringLiteral("insert into cars values(7,'桑塔拉',3,1995)"));
+	//query.exec(QStringLiteral("insert into cars values(8,'帕萨特',3,2000)"));
+	//query.exec(QStringLiteral("insert into cars values(9,'桑塔拉',3,1995)"));
+	//query.exec(QStringLiteral("insert into cars values(10,'帕萨特',3,2000)"));
+	query.exec(QObject::tr("create table factory (id int primary key,manufactory varchar(60),address varchar(60))"));
+	query.exec(QObject::tr("insert into factory values(1,'一汽大众','长春')"));
+	query.exec(QObject::tr("insert into factory values(2,'二汽神龙','武汉')"));
+	query.exec(QObject::tr("insert into factory values(3,'一起大众','长春')"));
+	query.exec(QObject::tr("insert into factory values(4,'二汽神龙','武汉')"));
+	query.exec(QObject::tr("create table cars (carid int primary key,name varchar(50),factoryid int,year int)"));
+	query.exec(QObject::tr("insert into cars values(1,'奥迪A6',1,2005)"));
+	query.exec(QObject::tr("insert into cars values(2,'捷达',1,1993)"));
+	query.exec(QObject::tr("insert into cars values(3,'宝来',1,2000)"));
+	query.exec(QObject::tr("insert into cars values(4,'毕加索',2,1999)"));
+	query.exec(QObject::tr("insert into cars values(5,'富康',2,2004)"));
+	query.exec(QObject::tr("insert into cars values(6,'标志307',2,2001)"));
+	query.exec(QObject::tr("insert into cars values(7,'桑塔拉',3,1995)"));
+	query.exec(QObject::tr("insert into cars values(8,'帕萨特',3,2000)"));
+	query.exec(QObject::tr("insert into cars values(9,'桑塔拉',3,1995)"));
+	query.exec(QObject::tr("insert into cars values(10,'帕萨特',3,2000)"));
 
-    query.exec(QObject::tr("insert into cars values(1,'奥迪A6',1,2005)"));
-    query.exec(QObject::tr("insert into cars values(2,'捷达',1,1993)"));
-    query.exec(QObject::tr("insert into cars values(3,'宝来',1,2000)"));
-    query.exec(QObject::tr("insert into cars values(4,'毕加索',2,1999)"));
-    query.exec(QObject::tr("insert into cars values(5,'富康',2,2004)"));
-    query.exec(QObject::tr("insert into cars values(6,'标志307',2,2001)"));
-    query.exec(QObject::tr("insert into cars values(7,'桑塔拉',3,1995)"));
-    query.exec(QObject::tr("insert into cars values(8,'帕萨特',3,2000)"));
+	qDebug() << query.exec("SELECT * FROM cars");
+	//query.seek(0);
+	QSqlRecord record = query.record();
+	QString name = record.value("name").toString();
+	qDebug() << "name:" << name;
+	qDebug() << query.lastError();
+
+}
+
+void ConnectDlg::readDB()
+{
+
 }
 
 void ConnectDlg::addSqliteConnection()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("databasefile");
+    QSqlDatabase db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"));
+    db.setDatabaseName(QStringLiteral("databasefile"));
     if(!db.open())
     {
         ui->status_lineEdit->setText(db.lastError().text());
@@ -105,6 +138,7 @@ void ConnectDlg::on_okButton_clicked()
         addSqliteConnection();
         //创建数据库表，如已存在则无须执行
         createDB();
+		readDB();
         accept();
     }
     else

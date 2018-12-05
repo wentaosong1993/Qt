@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    connectdlg.cpp
+    connectdlg.cpp \
+    editdialog.cpp
 
 HEADERS  += mainwindow.h \
-    connectdlg.h
+    connectdlg.h \
+    editdialog.h
 
 FORMS += \
     connectdlg.ui

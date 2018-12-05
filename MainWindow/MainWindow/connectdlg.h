@@ -28,6 +28,7 @@ public:
     int port() const;
     QSqlError addConnection(const QString& driver,const QString &dbName, const QString &host, const QString &user,const QString &passwd, int port = -1);
     void createDB();
+	void readDB();
     void addSqliteConnection();
 private slots:
     void on_okButton_clicked();

@@ -7,36 +7,31 @@
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QSqlRecord>
+#include "editdialog.h"
 
-//MainWindow::MainWindow(QWidget *parent)
-//    : QMainWindow(parent)
-//{
-//    QGroupBox *factory = createFactoryGroupBox();
-//    QGroupBox *cars = createCarGroupBox();
-//    QGroupBox *details = createDetailsGroupBox();
+extern int uniqueCarId;
+extern int uniqueFactoryId;
 
-//    //布局
-//    QGridLayout *layout = new QGridLayout;
-//    layout->addWidget(factory,0,0);
-//    layout->addWidget(cars,1,0);
-//    layout->addWidget(details,0,1,2,1);
-//    layout->setColumnStretch(1,1);
-//    layout->setColumnMinimumWidth(0,500);
-//    QWidget *widget = new QWidget;
-//    widget->setLayout(layout);
-//    setCentralWidget(widget);
-//    createMenuBar();
-//    resize(850,400);
-//    setWindowTitle(QStringLiteral("主从视图"));
-
-//}
 
 MainWindow::MainWindow(const QString &factoryTable, const QString &carTable, QFile *carDetails, QWidget *parent)
 	:QMainWindow(parent)
 {
+	file = carDetails;
+	readCarData();
+	carModel = new QSqlRelationalTableModel(this);
+	carModel->setTable(carTable);
+	carModel->setRelation(2, QSqlRelation(factoryTable, "id", "manufactory"));
+	carModel->select();
+	factoryModel = new QSqlTableModel(this);
+	factoryModel->setTable(factoryTable);
+	factoryModel->select();
+
     QGroupBox *factory = createFactoryGroupBox();
     QGroupBox *cars = createCarGroupBox();
     QGroupBox *details = createDetailsGroupBox();
+
+    uniqueCarId = carModel->rowCount();
+    uniqueFactoryId = factoryModel->rowCount();
 
     //布局
     QGridLayout *layout = new QGridLayout;
@@ -52,27 +47,27 @@ MainWindow::MainWindow(const QString &factoryTable, const QString &carTable, QFi
     resize(850,400);
     setWindowTitle(QStringLiteral("主从视图"));
 
-    file = carDetails;
-    readCarData();
-    carModel = new QSqlRelationalTableModel(this);
-    carModel->setTable(carTable);
-    carModel->setRelation(2,QSqlRelation(factoryTable,"id","manufactory"));
-    carModel->select();
-    factoryModel = new QSqlTableModel(this);
-    factoryModel->setTable(factoryTable);
-    factoryModel->select();
+   
     //...
 }
 
 void MainWindow::addCar()
 {
-
+    EditDialog *dialog = new EditDialog(carModel,factoryModel,carData,file,this);
+    int accepted = dialog->exec();
+    if(accepted == 1)
+    {
+        int lastRow = carModel->rowCount() - 1;
+        carView->selectRow(lastRow);
+        carView->scrollToBottom();
+        showCarDetails(carModel->index(lastRow, 0));
+    }
 }
 
 void MainWindow::changeFactory(QModelIndex index)
 {
     QSqlRecord record = factoryModel->record(index.row());
-    QString factoryId = record.value("id").toString();
+    QString factoryId = record.value(QStringLiteral("id")).toString();
     carModel->setFilter("id= '" + factoryId + "'");
     showFactoryProfile(index);
 }
@@ -159,7 +154,7 @@ QGroupBox *MainWindow::createCarGroupBox()
 
     QVBoxLayout *layout = new QVBoxLayout;
 
-    //carView->setModel(carModel);//mainwindow.cpp构造函数中功能待完善！！（目前这里会报错）
+    carView->setModel(carModel);
     connect(carView,SIGNAL(clicked(QModelIndex)),this,SLOT(showCarDetails(QModelIndex)));
     connect(carView,SIGNAL(activated(QModelIndex)),this,SLOT(showCarDetails(QModelIndex)));
     layout->addWidget(carView,0,0);
@@ -179,6 +174,7 @@ QGroupBox *MainWindow::createFactoryGroupBox()
     factoryView->setSelectionMode(QAbstractItemView::SingleSelection);
     factoryView->setShowGrid(false);
     factoryView->setAlternatingRowColors(true);
+    factoryView->verticalHeader()->hide();
 
     factoryView->setModel(factoryModel);
     connect(factoryView,SIGNAL(clicked(QModelIndex)),this,SLOT(changeFactory(QModelIndex)));
