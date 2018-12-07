@@ -30,6 +30,8 @@ private slots:
     void on_chartMenu_clicked();
     void on_quitMenu_clicked();
 
+    void on_sellFactoryComboBox_activated(const QString &arg1);
+
 private:
     Ui::widget *ui;
 
