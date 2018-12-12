@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    QFile *carDetails = new QFile("./attribs.xml");
-    MainWindow window("factory","car",carDetails);
+    QFile *carDetails = new QFile("attribs.xml");
+    MainWindow window("factory","cars",carDetails);
     window.show();
 
     return a.exec();
