@@ -21,6 +21,8 @@ public:
 private slots:
     void on_sendBtn_clicked();
 
+    void on_closeBtn_clicked();
+
 private:
     Ui::Widget *ui;
     QUdpSocket *udpSocket;

@@ -24,8 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    otherudp.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    otherudp.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    otherudp.ui
