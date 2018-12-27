@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/checkbox_checked.png</file>
+        <file>Image/checkbox_checked_hover.png</file>
+        <file>Image/checkbox_checked_pressed.png</file>
+        <file>Image/checkbox_unchecked.png</file>
+        <file>Image/checkbox_unchecked_hover.png</file>
+        <file>Image/checkbox_unchecked_pressed.png</file>
+        <file>Image/down_arrow.png</file>
+        <file>Image/down_arrow_disabled.png</file>
+        <file>Image/frame.png</file>
+        <file>Image/pagefold.png</file>
+        <file>Image/pushbutton.png</file>
+        <file>Image/pushbutton_hover.png</file>
+        <file>Image/pushbutton_pressed.png</file>
+        <file>Image/radiobutton_checked.png</file>
+        <file>Image/radiobutton_checked_hover.png</file>
+        <file>Image/radiobutton_checked_pressed.png</file>
+        <file>Image/radiobutton_unchecked.png</file>
+        <file>Image/radiobutton_unchecked_hover.png</file>
+        <file>Image/radiobutton_unchecked_pressed.png</file>
+        <file>Image/sizegrip.png</file>
+        <file>Image/spindown.png</file>
+        <file>Image/spindown_hover.png</file>
+        <file>Image/spindown_off.png</file>
+        <file>Image/spindown_pressed.png</file>
+        <file>Image/spinup.png</file>
+        <file>Image/spinup_hover.png</file>
+        <file>Image/spinup_off.png</file>
+        <file>Image/spinup_pressed.png</file>
+        <file>Image/up_arrow.png</file>
+        <file>Image/up_arrow_disabled.png</file>
+    </qresource>
+</RCC>
