@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <widget class="QSlider" name="horizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>20</y>
+     <width>160</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider:groove:horizontal {border: 1px solid #00688B;	height:5px;	border-radius: 3px;}
+QSlider:handle:horizontal{background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,stop:0.6 #45ADED, stop:0.778409 rgba(255, 255, 255, 255));
+	width:10px;
+	margin-top:-3px;
+	margin-bottom:-3px;border-radius:5px;}
+QSlider:handle:horizontal:hover {background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0.6 #2A8BDA,stop:0.778409 rgba(255, 255, 255, 255));
+	width:10px;
+	margin-top: -3px;
+	margin-bottom: -3px;
+	border-radius:5px;}
+
+QSlider:sub-page{border-radius:3px;background:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #009ACD, stop:1 #008B8B);/*sub-page指的是已有的百分比背景块*/
+	margin: 2px 0;}
+
+QSlider:add-page{border-radius:3px;background:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 red, stop:1 #008B8B);/*add-page指的是尚未分配的百分比背景块*/
+	margin: 2px 0;}
+QSlider {alignment: center;}
+</string>
+   </property>
+   <property name="value">
+    <number>10</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="invertedAppearance">
+    <bool>false</bool>
+   </property>
+   <property name="invertedControls">
+    <bool>false</bool>
+   </property>
+   <property name="tickPosition">
+    <enum>QSlider::TicksBelow</enum>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
