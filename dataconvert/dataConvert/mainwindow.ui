@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>708</width>
+    <height>571</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>当前生意群</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{background:#F9FAFC;border:1px solid #d3dce6;color:#222222;font:14px;}
+QComboBox:focus{background:#ffffff;border:1px solid #20a0ff;color:#222222;font:14px;}
+QComboBox:on{background:#ffffff;border:1px solid #20a0ff;color:#222222;font:14px;}
+QComboBox:disabled{background:#f3f5f7;border:1px solid #d3dce6;color:#c9d0d5;font:14px;}
+QComboBox::drop-down{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Img/drop-down_nor.png);}
+QComboBox::drop-down:hover{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Img/drop-down_hover.png);}
+QComboBox::drop-down:pressed{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Img/drop-down_press.png);}
+QComboBox QAbstractItemView{border:1px solid #20a0ff;}
+QComboBox QAbstractItemView::item{height: 30px;}
+QComboBox QAbstractItemView::item:selected{background-color: #2087d3;}
+
+
+
+</string>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="currentText">
+          <string notr="true">--请选择生意群--</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="productImport">
+         <property name="styleSheet">
+          <string notr="true">.QPushButton{font:14px;color:black;background:#FFFFFF;border:1px solid #D3DCE6;border-radius:0px;padding:5px 10px 5px 10px;}
+.QPushButton:hover{background-color:#EFFAFE;}
+.QPushButton:checked{color:white;background-color:#2087d3;}</string>
+         </property>
+         <property name="text">
+          <string>商品导入</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="publishManage">
+         <property name="styleSheet">
+          <string notr="true">.QPushButton{font:14px;color:black;background:#FFFFFF;border:1px solid #D3DCE6;border-radius:0px;padding:5px 10px 5px 10px;}
+.QPushButton:hover{background-color:#EFFAFE;}
+.QPushButton:checked{color:white;background-color:#2087d3;}</string>
+         </property>
+         <property name="text">
+          <string>发布管理</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="modelSetting">
+         <property name="styleSheet">
+          <string notr="true">.QPushButton{font:14px;color:black;background:#FFFFFF;border:1px solid #D3DCE6;border-radius:0px;padding:5px 10px 5px 10px;}
+.QPushButton:hover{background-color:#EFFAFE;}
+.QPushButton:checked{color:white;background-color:#2087d3;}</string>
+         </property>
+         <property name="text">
+          <string>模板设置</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::pane { /* The tab widget frame */
+	border-top: 1px solid #C2C7CB;
+}
+
+QTabWidget::tab-bar {
+	left: 225px; /* move to the right by 5px */
+}
+
+/* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+	min-width: 8ex;
+	padding: 4px;
+	border: 1px solid transparent;
+}
+
+QTabBar::tab:hover{
+	border-color: rgb(85, 170, 255);
+}
+
+QTabBar::tab:selected {
+	background-color: rgb(85, 170, 255);
+}
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>商品导入</string>
+       </attribute>
+      </widget>
+      <widget class="PublishManager" name="tab_1">
+       <attribute name="title">
+        <string>发布管理</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>数据源设置</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>PublishManager</class>
+   <extends>QWidget</extends>
+   <header location="global">publishmanager.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -19,6 +19,10 @@ TryOutOfQLineEdit::TryOutOfQLineEdit(QWidget *parent) :
     ui->pushButton->setDefault(true);
 
     connect(ui->pushButton,&QPushButton::clicked,this,&TryOutOfQLineEdit::PrintOutput);
+
+//    this->setWindowState(this->windowState() ^ Qt::WindowFullScreen);
+//    this->setWindowState((this->windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+    this->setWindowState(Qt::WindowActive);
 }
 
 TryOutOfQLineEdit::~TryOutOfQLineEdit()
@@ -28,5 +32,6 @@ TryOutOfQLineEdit::~TryOutOfQLineEdit()
 
 void TryOutOfQLineEdit::PrintOutput()
 {
+    this->setWindowState(Qt::WindowMaximized);
     qDebug() << "execute once!";
 }
