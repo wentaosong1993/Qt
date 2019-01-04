@@ -1,4 +1,4 @@
-#ifndef TREEWIDGET_H
+﻿#ifndef TREEWIDGET_H
 #define TREEWIDGET_H
 
 #include <QWidget>
@@ -15,6 +15,8 @@ public:
     explicit treeWidget(QWidget *parent = 0);
     ~treeWidget();
 
+public slots:
+        void setCurrentItemStyle(int row,int column);
 private:
     Ui::treeWidget *ui;
 };
