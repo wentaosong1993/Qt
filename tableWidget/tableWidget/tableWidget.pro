@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-01-03T10:37:13
+# Project created by QtCreator 2019-01-04T15:15:41
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = dataConvert
+TARGET = TableWidget
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,16 +24,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    publishmanager.cpp
+        tablewidget.cpp
 
-HEADERS  += mainwindow.h \
-    publishmanager.h
-
-FORMS    += mainwindow.ui \
-    publishmanager.ui
-
-RESOURCES += \
-    img.qrc
-
-CONFIG += C++11
+HEADERS  += tablewidget.h

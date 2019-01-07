@@ -19,6 +19,11 @@ public:
 
     void initWindow();
 
+public slots:
+    void selectSrcTable(int row,int column = 0);
+    void selectConverTable(int row,int column = 0);
+    void selectOperatorTable(int row,int column = 0);
+
 private:
     Ui::PublishManager *ui;
 
