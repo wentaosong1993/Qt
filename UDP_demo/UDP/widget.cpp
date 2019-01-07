@@ -6,11 +6,11 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    setWindowTitle(QStringLiteral("端口号为8888"));
+    setWindowTitle(QStringLiteral("端口号为9999"));
     udpSocket = new QUdpSocket(this);
 
     //绑定
-    udpSocket->bind(8888);
+    udpSocket->bind(9999);
 
 
 //    udpSocket->bind(QHostAddress::AnyIPv4, 8888);
@@ -48,6 +48,17 @@ void Widget::on_sendBtn_clicked()
     quint16 strPort = ui->lineEditPort->text().trimmed().toInt();
 
     QString str = ui->textEdit->toPlainText().trimmed();
+    if(str.isEmpty())
+    {
+        return;
+    }
 
     udpSocket->writeDatagram(str.toUtf8(),QHostAddress(strIP),strPort);
+    ui->lineEditPort->text().clear();
+}
+
+void Widget::on_closeBtn_clicked()
+{
+    udpSocket->disconnectFromHost();
+    close();
 }

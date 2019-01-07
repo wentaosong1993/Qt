@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Widget</class>
- <widget class="QWidget" name="Widget">
+ <class>OtherUdp</class>
+ <widget class="QWidget" name="OtherUdp">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>485</width>
-    <height>338</height>
+    <width>650</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_7">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="label_5">
        <property name="text">
         <string>对方的IP：  </string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEditIP">
+      <widget class="QLineEdit" name="otherLineEditIP">
        <property name="text">
         <string>127.0.0.1</string>
        </property>
@@ -33,33 +33,33 @@
     </layout>
    </item>
    <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_6">
        <property name="text">
         <string>对方的端口：</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEditPort"/>
+      <widget class="QLineEdit" name="otherLineEditPort"/>
      </item>
     </layout>
    </item>
    <item row="2" column="0">
-    <widget class="QTextEdit" name="textEdit"/>
+    <widget class="QTextEdit" name="otherTextEdit"/>
    </item>
    <item row="3" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
-      <widget class="QPushButton" name="sendBtn">
+      <widget class="QPushButton" name="otherSendBtn">
        <property name="text">
         <string>send</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -72,7 +72,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="closeBtn">
+      <widget class="QPushButton" name="otherCloseBtn">
        <property name="text">
         <string>close</string>
        </property>
@@ -82,7 +82,6 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>

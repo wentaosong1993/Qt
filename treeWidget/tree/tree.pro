@@ -1,14 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-12-12T21:18:37
+# Project created by QtCreator 2019-01-03T16:33:25
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = UDP
+TARGET = tree
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,11 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        widget.cpp \
-    otherudp.cpp
+        treewidget.cpp
 
-HEADERS  += widget.h \
-    otherudp.h
+HEADERS  += treewidget.h
 
-FORMS    += widget.ui \
-    otherudp.ui
+FORMS    += treewidget.ui

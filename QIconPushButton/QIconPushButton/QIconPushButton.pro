@@ -1,14 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-12-12T21:18:37
+# Project created by QtCreator 2018-12-27T18:56:58
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = UDP
+TARGET = QIconPushButton
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,11 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        widget.cpp \
-    otherudp.cpp
+        qiconpushbutton.cpp \
+    mybutton.cpp
 
-HEADERS  += widget.h \
-    otherudp.h
+HEADERS  += qiconpushbutton.h \
+    mybutton.h
 
-FORMS    += widget.ui \
-    otherudp.ui
+FORMS    += \
+    mybutton.ui
+
+RESOURCES += \
+    image.qrc

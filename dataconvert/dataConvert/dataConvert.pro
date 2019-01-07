@@ -1,14 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-12-12T21:18:37
+# Project created by QtCreator 2019-01-03T10:37:13
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = UDP
+TARGET = dataConvert
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,11 +24,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        widget.cpp \
-    otherudp.cpp
+        mainwindow.cpp \
+    publishmanager.cpp
 
-HEADERS  += widget.h \
-    otherudp.h
+HEADERS  += mainwindow.h \
+    publishmanager.h
 
-FORMS    += widget.ui \
-    otherudp.ui
+FORMS    += mainwindow.ui \
+    publishmanager.ui
+
+RESOURCES += \
+    img.qrc
+
+CONFIG += C++11

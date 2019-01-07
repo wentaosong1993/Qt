@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PublishManager</class>
+ <widget class="QWidget" name="PublishManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>790</width>
+    <height>567</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QFrame" name="HeadFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLable{font:14px; color:#282828;}</string>
+        </property>
+        <property name="text">
+         <string>上下架状态：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="pushButtonAll">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton:!checked{border:0px;font:14px;background:transparent;color:#282828;}
+QPushButton:checked{font: 14px;color: #ffffff;background-color:#29a1f7;border:0px;border-radius:2px;}
+</string>
+           </property>
+           <property name="text">
+            <string>全部</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonPutaway">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton:!checked{border:0px;font:14px;background:transparent;color:#282828;}
+QPushButton:checked{font: 14px;color: #ffffff;background-color:#29a1f7;border:0px;border-radius:2px;}
+</string>
+           </property>
+           <property name="text">
+            <string>上架</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUnshelve">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton:!checked{border:0px;font:14px;background:transparent;color:#282828;}
+QPushButton:checked{font: 14px;color: #ffffff;background-color:#29a1f7;border:0px;border-radius:2px;}
+</string>
+           </property>
+           <property name="text">
+            <string>下架</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonPutawayFail">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton:!checked{border:0px;font:14px;background:transparent;color:#282828;}
+QPushButton:checked{font: 14px;color: #ffffff;background-color:#29a1f7;border:0px;border-radius:2px;}
+</string>
+           </property>
+           <property name="text">
+            <string>被动下架</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>181</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditSearch">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{background:#f9fafc;border:1px solid #d3dce6;padding:0px 4px 0px 4px;color:#222222;font:14px;}
+QLineEdit:focus{background:#ffffff;border:1px solid #20a0ff;padding:0px 4px 0px 4px;color:#222222;font:14px;}
+QLineEdit:disabled{background:#f3f5f7;border:1px solid #d3dce6;padding:0px 4px 0px 4px;color:#c9d0d5;font:14px;}</string>
+        </property>
+        <property name="placeholderText">
+         <string>请输入关键词</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonSearch">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton{font: 14px;color: #ffffff;background-color:#29a1f7;border:0px;border-radius:2px;}
+.QPushButton:hover{background-color:#4ab0fb;border:0px;border-radius:2px;}
+.QPushButton:pressed{background-color:#2087d3;border:0px;border-radius:2px;}</string>
+        </property>
+        <property name="text">
+         <string>搜索</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QFrame" name="MenuFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="pushButtonDel">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border:1px solid #23a1ff; font:14px;color:#23a1ff;background:transparent;border-radius:2px;}
+QPushButton:hover{border:0px solid #29a1f7; font:14px;color:white;background-color:#29a1f7;}
+QPushButton:pressed{border:0px solid #29a1f7; font:14px;color:white;background-color:#29a1f7;}</string>
+        </property>
+        <property name="text">
+         <string>删除选中商品</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBoxUnshelve">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox{background:#F9FAFC;border:1px solid #d3dce6;color:#222222;font:14px;}
+QComboBox:focus{background:#ffffff;border:1px solid #20a0ff;color:#222222;font:14px;}
+QComboBox:on{background:#ffffff;border:1px solid #20a0ff;color:#222222;font:14px;}
+QComboBox:disabled{background:#f3f5f7;border:1px solid #d3dce6;color:#c9d0d5;font:14px;}
+QComboBox::drop-down{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Resources/drop-down_nor.png);}
+QComboBox::drop-down:hover{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Resources/drop-down_hover.png);}
+QComboBox::drop-down:pressed{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Resources/drop-down_press.png);}
+QComboBox QAbstractItemView{border:1px solid #20a0ff;}
+QComboBox QAbstractItemView::item{height: 30px;}
+QComboBox QAbstractItemView::item:selected{background-color: #2087d3;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBoxPutaway">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox{background:#F9FAFC;border:1px solid #d3dce6;color:#222222;font:14px;}
+QComboBox:focus{background:#ffffff;border:1px solid #20a0ff;color:#222222;font:14px;}
+QComboBox:on{background:#ffffff;border:1px solid #20a0ff;color:#222222;font:14px;}
+QComboBox:disabled{background:#f3f5f7;border:1px solid #d3dce6;color:#c9d0d5;font:14px;}
+QComboBox::drop-down{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Resources/drop-down_nor.png);}
+QComboBox::drop-down:hover{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Resources/drop-down_hover.png);}
+QComboBox::drop-down:pressed{margin:3px 0px 3px 0px;width:24px;border-image: url(:/Resources/drop-down_press.png);}
+QComboBox QAbstractItemView{border:1px solid #20a0ff;}
+QComboBox QAbstractItemView::item{height: 30px;}
+QComboBox QAbstractItemView::item:selected{background-color: #2087d3;}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>405</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonDetail">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border:1px solid #23a1ff; font:14px;color:#23a1ff;background:transparent;border-radius:2px;}
+QPushButton:hover{border:0px solid #29a1f7; font:14px;color:white;background-color:#29a1f7;}
+QPushButton:pressed{border:0px solid #29a1f7; font:14px;color:white;background-color:#29a1f7;}</string>
+        </property>
+        <property name="text">
+         <string>查看群商品规则</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QTableWidget" name="tableWidget_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>200</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="dragDropOverwriteMode">
+      <bool>false</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>true</bool>
+     </property>
+     <property name="rowCount">
+      <number>2</number>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>100</number>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>30</number>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <row/>
+     <row/>
+     <column>
+      <property name="text">
+       <string>原始商品关键信息</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>转换后商品基础信息</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>状态和编辑</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

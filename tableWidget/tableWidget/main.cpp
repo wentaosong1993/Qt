@@ -1,15 +1,11 @@
-﻿#include "widget.h"
-#include "otherudp.h"
+#include "tablewidget.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Widget w;
+    TableWidget w;
     w.show();
-
-    OtherUdp w1;
-    w1.show();
 
     return a.exec();
 }
