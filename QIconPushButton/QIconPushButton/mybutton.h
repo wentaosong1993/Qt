@@ -1,4 +1,4 @@
-#ifndef MYBUTTON_H
+﻿#ifndef MYBUTTON_H
 #define MYBUTTON_H
 
 #include <QWidget>

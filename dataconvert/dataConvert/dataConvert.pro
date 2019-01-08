@@ -25,15 +25,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    publishmanager.cpp
+        publishmanager.cpp \
+        qiconpushbutton.cpp \
+    mydialog.cpp \
+#    jpshadow.cpp
 
 HEADERS  += mainwindow.h \
-    publishmanager.h
+        publishmanager.h \
+        qiconpushbutton.h \
+    mydialog.h \
+#    jpshadow.h
 
 FORMS    += mainwindow.ui \
-    publishmanager.ui
+        publishmanager.ui
 
 RESOURCES += \
-    img.qrc
+        img.qrc
 
 CONFIG += C++11

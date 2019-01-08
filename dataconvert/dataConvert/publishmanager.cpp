@@ -1,7 +1,8 @@
 ﻿#include "publishmanager.h"
-#include "ui_publishmanager.h"
 #include <QDebug>
 #include <QAbstractItemView>
+#include <QPushButton>
+#include "mydialog.h"
 
 
 PublishManager::PublishManager(QWidget *parent) :
@@ -9,13 +10,25 @@ PublishManager::PublishManager(QWidget *parent) :
     ui(new Ui::PublishManager)
 {
     ui->setupUi(this);
-    ui->tableWidget_2->setColumnWidth(0, 200);//第1列
-    ui->tableWidget_2->setColumnWidth(1, 900);//第2列
-    ui->tableWidget_2->setColumnWidth(2, 210);//第3列
-//    ui->tableWidget_2->setRowHeight(1,400); //设置表格总行高（不计算行表头的高度,很奇怪？怎么是第一行的总高度呢？）
-//    ui->tableWidget_2->setColumnWidth(1,300);
-    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 
+    QButtonGroup *buttonGroup = new QButtonGroup(this);
+    buttonGroup->addButton(ui->pushButtonAll,0);
+    buttonGroup->addButton(ui->pushButtonPutaway,1);
+    buttonGroup->addButton(ui->pushButtonUnshelve,2);
+    buttonGroup->addButton(ui->pushButtonPutawayFail,3);
+
+    initWindow();//实例化表格
+
+    connect(ui->pushButtonDetail,SIGNAL(clicked()),this,SLOT(viewUnionRegulations()));
+}
+
+PublishManager::~PublishManager()
+{
+    delete ui;
+}
+
+void PublishManager::initWindow()
+{
     QString tabStyle = "QTableWidget{border:none;color:#282828;	gridline-color:#D3DCE6;} \
     QTableWidget::item::selected{background-color:  #b3ecff;}";
 
@@ -25,14 +38,14 @@ PublishManager::PublishManager(QWidget *parent) :
     QScrollBar::add-line:horizontal{border:0px; height:0px;} \
     QScrollBar::sub-line:horizontal{border:0px; height:0px;}";
 
+    ui->tableWidget_2->setColumnWidth(0, 200);//第1列
+    ui->tableWidget_2->setColumnWidth(1, 900);//第2列
+    ui->tableWidget_2->setColumnWidth(2, 210);//第3列
+//    ui->tableWidget_2->setRowHeight(1,400); //设置表格第一行的高度（不计算行表头的高度）
+    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+
+
     m_SrcTabWidget = new QTableWidget(ui->tableWidget_2);
-//    m_SrcTabWidget->setDefaultDropAction(Qt::IgnoreAction);
-//    m_SrcTabWidget->setDragDropOverwriteMode(false);
-//    m_SrcTabWidget->setSelectionMode(QAbstractItemView::DraggingState);
-//    m_SrcTabWidget->setDragEnabled(false);
-//    m_SrcTabWidget->setSelectionModel(QItemSelectionModel::NoUpdate);
-//    m_SrcTabWidget->setDragDropMode(QAbstractItemView::NoDragDrop);
-    //    connect(m_SrcTabWidget,SIGNAL(cellPressed(int,int)),this,SLOT(selectSrcTable(int)));
     connect(m_SrcTabWidget,SIGNAL(cellPressed(int,int)),this,SLOT(selectSrcTable(int)));
     m_SrcTabWidget->setStyleSheet(tabStyle + transparentScroll);
     m_SrcTabWidget->verticalHeader()->setVisible(false);
@@ -57,20 +70,8 @@ PublishManager::PublishManager(QWidget *parent) :
     m_SrcTabWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
     m_SrcTabWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
 
-//    m_SelectAllButton = new QCheckBox(m_SrcTabWidget);
-//    m_SelectAllButton->setStyleSheet("QCheckBox{margin-left: 6px;margin-top: 3px;margin-right: 2px;}");
-//    m_SelectAllButton->setGeometry(1,1,28,20);
-
-
-
     //转换数据表
     m_ConverTabWidget = new QTableWidget(ui->tableWidget_2);
-//    m_ConverTabWidget->setDefaultDropAction(Qt::IgnoreAction);
-//    m_ConverTabWidget->setDragDropOverwriteMode(false);
-//    m_ConverTabWidget->setSelectionMode(QAbstractItemView::NoState);
-//    m_ConverTabWidget->setDragEnabled(false);
-//    m_ConverTabWidget->setSelectionModel(QItemSelectionModel::NoUpdate);
-//    m_ConverTabWidget->setDragDropMode(QAbstractItemView::NoDragDrop);
     connect(m_ConverTabWidget,SIGNAL(cellPressed(int,int)),this,SLOT(selectConverTable(int)));
     m_ConverTabWidget->verticalHeader()->setVisible(false);
     m_ConverTabWidget->setStyleSheet(tabStyle + transparentScroll);
@@ -88,16 +89,6 @@ PublishManager::PublishManager(QWidget *parent) :
         << QStringLiteral("规格及备注");
     m_ConverTabWidget->setColumnCount(convHead.size());
     m_ConverTabWidget->setHorizontalHeaderLabels(convHead);
-
-//    m_ConverTabWidget->setColumnWidth(0, 60);
-//    m_ConverTabWidget->setColumnWidth(1, 70);
-//    m_ConverTabWidget->setColumnWidth(2, 50);
-//    m_ConverTabWidget->setColumnWidth(3, 80);
-//    m_ConverTabWidget->setColumnWidth(4, 70);
-//    m_ConverTabWidget->setColumnWidth(5, 70);
-//    m_ConverTabWidget->setColumnWidth(6, 50);
-//    m_ConverTabWidget->setColumnWidth(7, 90);
-
     m_ConverTabWidget->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch); //需要放置在设置行数和列数后，否则崩溃
     m_ConverTabWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
     m_ConverTabWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
@@ -110,15 +101,7 @@ PublishManager::PublishManager(QWidget *parent) :
 
 
     m_OperatorTabWidget = new QTableWidget(ui->tableWidget_2);
-//    m_OperatorTabWidget->setDefaultDropAction(Qt::IgnoreAction);
-//    m_OperatorTabWidget->setDragDropOverwriteMode(false);
-//    m_OperatorTabWidget->setDragEnabled(false);
-//    m_OperatorTabWidget->setSelectionModel(QItemSelectionModel::NoUpdate);
-//    m_OperatorTabWidget->setDragDropMode(QAbstractItemView::NoDragDrop);
-//    m_OperatorTabWidget->setSelectionMode(QAbstractItemView::NoState);
     connect(m_OperatorTabWidget,SIGNAL(cellPressed(int,int)),this,SLOT(selectOperatorTable(int)));
-
-
     m_OperatorTabWidget->verticalHeader()->setVisible(false);
     m_OperatorTabWidget->setStyleSheet(tabStyle + transparentScroll);
     m_OperatorTabWidget->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -141,16 +124,7 @@ PublishManager::PublishManager(QWidget *parent) :
     ui->tableWidget_2->setCellWidget(0, 1, m_ConverTabWidget);
     ui->tableWidget_2->setCellWidget(0, 2, m_OperatorTabWidget);
 
-    initWindow();
-}
 
-PublishManager::~PublishManager()
-{
-    delete ui;
-}
-
-void PublishManager::initWindow()
-{
     m_SrcTabWidget->clearContents();
     m_SrcTabWidget->setFixedHeight(200);
 
@@ -161,8 +135,7 @@ void PublishManager::initWindow()
     {
         for(int j = 0 ; j < 3; j++)//列
         {
-//            QWidget *pItemWidget = new QWidget(this);
-//            m_ConverTabWidget->setCellWidget(i,j,pItemWidget);
+//          QWidget *pItemWidget = new QWidget(this);
             m_SrcTabWidget->setItem(i,j,new QTableWidgetItem("111"));
             m_SrcTabWidget->item(i,j)->setTextAlignment(Qt::AlignCenter);
         }
@@ -185,23 +158,22 @@ void PublishManager::initWindow()
 
     m_OperatorTabWidget->clearContents();
     m_OperatorTabWidget->setFixedHeight(200);
-
     m_OperatorTabWidget->setRowCount(4);
     m_OperatorTabWidget->setColumnCount(2);
     m_OperatorTabWidget->verticalHeader()->setDefaultSectionSize(30);
+
     for(int i = 0; i < 4;i++) //行
     {
         for(int j = 0 ; j < 2; j++)//列
         {
-//            QWidget *pItemWidget = new QWidget(this);
-//            m_ConverTabWidget->setCellWidget(i,j,pItemWidget);
-            m_OperatorTabWidget->setItem(i,j,new QTableWidgetItem("111"));
-            m_OperatorTabWidget->item(i,j)->setTextAlignment(Qt::AlignCenter);
+            QWidget *pItemWidget = new QWidget(this);
+            m_button = new QIconPushButton(this);
+            m_OperatorTabWidget->setCellWidget(i,j,m_button);
         }
     }
 }
 
-void PublishManager::selectSrcTable(int row,int column)
+void PublishManager::selectSrcTable(int row/*,int column*/)
 {
     m_ConverTabWidget->selectRow(row);
     m_OperatorTabWidget->selectRow(row);
@@ -210,7 +182,7 @@ void PublishManager::selectSrcTable(int row,int column)
 }
 
 
-void PublishManager::selectConverTable(int row,int column)
+void PublishManager::selectConverTable(int row/*,int column*/)
 {
     m_SrcTabWidget->selectRow(row);
     m_OperatorTabWidget->selectRow(row);
@@ -218,10 +190,24 @@ void PublishManager::selectConverTable(int row,int column)
 //    disconnect(m_SrcTabWidget,0,this,0);
 }
 
-void PublishManager::selectOperatorTable(int row,int column)
+void PublishManager::selectOperatorTable(int row/*,int column*/)
 {
     m_SrcTabWidget->selectRow(row);
     m_ConverTabWidget->selectRow(row);
     qDebug() << "Operator" ;
-//    disconnect(m_SrcTabWidget,0,this,0);
+    //    disconnect(m_SrcTabWidget,0,this,0);
+}
+
+void PublishManager::viewUnionRegulations()
+{
+//    QDialog *unionRegulation = new QDialog(0);
+
+//    unionRegulation->setWindowTitle(QStringLiteral("查看群规则"));
+//    unionRegulation->show();
+//    MyDialog *myDlg = new MyDialog(0);
+//    myDlg->setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
+//    myDlg->setWindowOpacity(0.99);
+//    myDlg->resize(300,400);
+//    myDlg->setTitle(QStringLiteral("查看群规则"));
+//    myDlg->exec();
 }

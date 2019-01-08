@@ -13,10 +13,8 @@ class QIconPushButton : public QPushButton
     Q_OBJECT
 
 public:
-    explicit QIconPushButton(QWidget *parent = 0);
+     QIconPushButton(QWidget *parent = 0);
     ~QIconPushButton();
-
-//    void setText(QString str);
 
 protected:
     virtual void enterEvent(QEvent *event);
