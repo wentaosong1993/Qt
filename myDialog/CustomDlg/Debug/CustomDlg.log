@@ -1,0 +1,9 @@
+﻿  Moc'ing CustomDlg.h...
+  Rcc'ing CustomDlg.qrc...
+  Uic'ing CustomDlg.ui...
+  CustomDlg.cpp
+  main.cpp
+  moc_CustomDlg.cpp
+  qrc_CustomDlg.cpp
+  CustomDlg.vcxproj -> D:\GitHubRepository\Qt\myDialog\Win32\Debug\CustomDlg.exe
+  CustomDlg.vcxproj -> D:\GitHubRepository\Qt\myDialog\Win32\Debug\CustomDlg.pdb (Full PDB)
