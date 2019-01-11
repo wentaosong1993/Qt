@@ -29,3 +29,6 @@ SOURCES += main.cpp\
 HEADERS  += tablewidget.h
 
 FORMS    += tablewidget.ui
+
+RESOURCES += \
+    img.qrc

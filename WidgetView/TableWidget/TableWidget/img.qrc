@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/drop-down_hover.png</file>
+        <file>Resources/drop-down_nor.png</file>
+        <file>Resources/drop-down_press.png</file>
+    </qresource>
+</RCC>
