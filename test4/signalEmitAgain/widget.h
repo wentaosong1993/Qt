@@ -19,6 +19,7 @@ signals:
     void clickSignal();
 public slots:
     void buttonClick();
+    void buttonClick(bool isChecked);
 
 private:
     Ui::Widget *ui;

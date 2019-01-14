@@ -25,6 +25,9 @@
    <property name="text">
     <string>PushButton</string>
    </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

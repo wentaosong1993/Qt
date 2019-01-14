@@ -10,7 +10,9 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 //    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(buttonClick()));
-    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(buttonClick()));
+//    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(buttonClick()));
+
+    connect(ui->pushButton,SIGNAL(toggled(bool)),this,SLOT(buttonClick(bool)));
 }
 
 Widget::~Widget()
@@ -33,4 +35,16 @@ void Widget::buttonClick()
 
    QStringList standardPath = QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation);
    qDebug() << standardPath;
+}
+
+void Widget::buttonClick(bool isChecked)
+{
+    if(isChecked)
+    {
+        qDebug() << "true";
+    }
+    else
+    {
+        qInfo() << "false";
+    }
 }
