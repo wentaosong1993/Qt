@@ -2,6 +2,7 @@
 #include "ui_treewidget.h"
 #include <QDebug>
 #include <QBrush>
+#include <QLabel>
 
 
 TreeWidget::TreeWidget(QWidget *parent) :
@@ -49,8 +50,14 @@ TreeWidget::TreeWidget(QWidget *parent) :
     QTreeWidgetItem *imageItem2_2 = new QTreeWidgetItem(imageItem2,QStringList(QStringLiteral("brand2")));
     imageItem2_2->setToolTip(0,imageItem2_2->text(0));
 
+    QTreeWidgetItem *imageItem2_3 = new QTreeWidgetItem(imageItem2);
+    QLabel *label = new QLabel("hello");
+    label->setFrameShape(QFrame::StyledPanel);//StyledPanel
+    ui->treeWidget->setItemWidget(imageItem2_3,0,label);
+
     imageItem2->addChild(imageItem2_1);
     imageItem2->addChild(imageItem2_2);
+    imageItem2->addChild(imageItem2_3);
 
     ui->treeWidget->expandAll();
     connect(ui->treeWidget,SIGNAL(itemClicked(QTreeWidgetItem *, int)),this,SLOT(printSlot(QTreeWidgetItem*,int)));
