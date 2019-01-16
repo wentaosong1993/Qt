@@ -16,6 +16,8 @@ public:
     explicit QIconPushButton(QWidget *parent = 0);
     ~QIconPushButton();
 
+//    void setText(QString str);
+
 protected:
     virtual void enterEvent(QEvent *event);
     virtual void leaveEvent(QEvent *event);

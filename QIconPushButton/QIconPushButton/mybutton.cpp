@@ -1,5 +1,6 @@
-#include "mybutton.h"
+﻿#include "mybutton.h"
 #include "ui_mybutton.h"
+#include "qiconpushbutton.h"
 
 mybutton::mybutton(QWidget *parent) :
     QWidget(parent),

@@ -1,0 +1,3 @@
+CustomDlg.h|"D:\GitHubRepository\Qt\myDialog\CustomDlg\CustomDlg.h" -o ".\GeneratedFiles\Debug\moc_CustomDlg.cpp" "-I.\GeneratedFiles" "-I." "-ID:\Qt\5.7\msvc2015\include" "-I.\GeneratedFiles\Debug" "-ID:\Qt\5.7\msvc2015\include\QtCore" "-ID:\Qt\5.7\msvc2015\include\QtGui" "-ID:\Qt\5.7\msvc2015\include\QtANGLE" "-ID:\Qt\5.7\msvc2015\include\QtWidgets" -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+CustomDlg.qrc|"D:\GitHubRepository\Qt\myDialog\CustomDlg\CustomDlg.qrc" -o ".\GeneratedFiles\qrc_CustomDlg.cpp" --name CustomDlg
+CustomDlg.ui|"D:\GitHubRepository\Qt\myDialog\CustomDlg\CustomDlg.ui" -o ".\GeneratedFiles\ui_CustomDlg.h"

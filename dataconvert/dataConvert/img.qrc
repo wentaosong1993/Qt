@@ -3,5 +3,6 @@
         <file>Img/drop-down_hover.png</file>
         <file>Img/drop-down_nor.png</file>
         <file>Img/drop-down_press.png</file>
+        <file>Img/tips.png</file>
     </qresource>
 </RCC>

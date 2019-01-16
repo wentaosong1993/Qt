@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/add-hover.png</file>
+        <file>img/add-normal.png</file>
+        <file>img/add-press.png</file>
+        <file>img/delete-normal.png</file>
+        <file>img/del-hover.png</file>
+        <file>img/del-press.png</file>
+        <file>img/expand-hover.png</file>
+        <file>img/expand-normal.png</file>
+        <file>img/expand-press.png</file>
+    </qresource>
+</RCC>

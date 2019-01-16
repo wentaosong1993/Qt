@@ -15,7 +15,7 @@ QIconPushButton::QIconPushButton(QWidget *parent) :
     m_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     QFont serifFont("Times", 10, QFont::Bold);
     m_label->setFont(serifFont);
-    m_label->setStyleSheet("QLabel{background-color: transparent;color: white; font: 14px; }");
+    m_label->setStyleSheet("QLabel{background-color: transparent;color: white; font: 14px;margin-left: 10px; }");
 
     m_icon = new QLabel;
     m_icon->setPixmap(QPixmap::fromImage(QImage(":/image/tips.png")));
@@ -37,6 +37,11 @@ QIconPushButton::QIconPushButton(QWidget *parent) :
 QIconPushButton::~QIconPushButton()
 {
 }
+
+//void QIconPushButton::setText(QString str)
+//{
+//    m_label->setText(str);
+//}
 
 void QIconPushButton::enterEvent(QEvent *event)
 {

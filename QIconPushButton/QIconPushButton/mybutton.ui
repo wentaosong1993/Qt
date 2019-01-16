@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>685</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QIconPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>70</y>
-     <width>80</width>
-     <height>20</height>
+     <x>300</x>
+     <y>190</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
@@ -31,7 +31,7 @@
   <customwidget>
    <class>QIconPushButton</class>
    <extends>QPushButton</extends>
-   <header>qiconpushbutton.h</header>
+   <header location="global">qiconpushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

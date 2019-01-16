@@ -1,9 +1,13 @@
 ﻿#ifndef PUBLISHMANAGER_H
 #define PUBLISHMANAGER_H
 
+#include "ui_publishmanager.h"
+#include "qiconpushbutton.h"
+
 #include <QWidget>
 #include <QTableWidget>
 #include <QCheckBox>
+#include <QDialog>
 
 namespace Ui {
 class PublishManager;
@@ -20,9 +24,10 @@ public:
     void initWindow();
 
 public slots:
-    void selectSrcTable(int row,int column = 0);
-    void selectConverTable(int row,int column = 0);
-    void selectOperatorTable(int row,int column = 0);
+    void selectSrcTable(int row/*,int column = 0*/);
+    void selectConverTable(int row/*,int column = 0*/);
+    void selectOperatorTable(int row/*,int column = 0*/);
+    void viewUnionRegulations();
 
 private:
     Ui::PublishManager *ui;
@@ -33,6 +38,7 @@ private:
 
 
     QCheckBox *m_SelectAllButton = nullptr;
+    QIconPushButton *m_button;
 };
 
 #endif // PUBLISHMANAGER_H
