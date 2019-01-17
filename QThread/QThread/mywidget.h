@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <QPushButton>
+#include "mythread.h"
 
 namespace Ui {
 class MyWidget;
@@ -23,6 +24,7 @@ public:
 private:
     Ui::MyWidget *ui;
     QTimer *m_timer;
+    MyThread *m_thread;
 };
 
 #endif // MYWIDGET_H

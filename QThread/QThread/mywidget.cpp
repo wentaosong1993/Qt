@@ -9,6 +9,7 @@ MyWidget::MyWidget(QWidget *parent) :
     ui->setupUi(this);
 
     m_timer = new QTimer(this);
+    m_thread = new MyThread(this);
 
     connect(m_timer,&QTimer::timeout,this,&MyWidget::dealTimeout);
 
@@ -27,11 +28,12 @@ void MyWidget::buttonClick()
     {
         m_timer->start(100);
     }
+    m_thread->start();
 
     //复杂数据处理子程序，耗时较长
-    QThread::sleep(5);
+//    QThread::sleep(5);
     //数据处理完成，关闭定时器
-    m_timer->stop();
+//    m_timer->stop();
 }
 
 void MyWidget::dealTimeout()
