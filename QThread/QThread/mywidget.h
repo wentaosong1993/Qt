@@ -20,6 +20,7 @@ public:
 
     void buttonClick();
     void dealTimeout();
+    void timerStop();
 
 private:
     Ui::MyWidget *ui;

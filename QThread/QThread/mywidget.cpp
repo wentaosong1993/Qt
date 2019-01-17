@@ -14,6 +14,7 @@ MyWidget::MyWidget(QWidget *parent) :
     connect(m_timer,&QTimer::timeout,this,&MyWidget::dealTimeout);
 
     connect(ui->pushButton,&QPushButton::clicked,this,&MyWidget::buttonClick);
+    connect(m_thread,&MyThread::isDone,this,&MyWidget::timerStop);
 
 }
 
@@ -41,4 +42,11 @@ void MyWidget::dealTimeout()
     static int i = 0;
     i++;
     ui->lcdNumber->display(i);
+}
+
+void MyWidget::timerStop()
+{
+    m_timer->stop();
+    m_thread->quit();
+    m_thread->wait();
 }

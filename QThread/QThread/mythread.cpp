@@ -10,4 +10,5 @@ void MyThread::run()
 {
     //复杂耗时程序
     sleep(5);
+    emit isDone();
 }
