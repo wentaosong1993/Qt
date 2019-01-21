@@ -7,6 +7,7 @@ MyWidget::MyWidget(QWidget *parent) :
     ui(new Ui::MyWidget)
 {
     ui->setupUi(this);
+
     m_thread = new myThread;
 
     m_qThread = new QThread(this);
@@ -16,8 +17,8 @@ MyWidget::MyWidget(QWidget *parent) :
     qDebug() << QStringLiteral("主线程号:") << QThread::currentThread();
 
 
-    connect(this,&MyWidget::startThread,m_thread,&myThread::myTimeOut);
-
+    connect(this,&MyWidget::startThread,m_thread,&myThread::myTimeOut);//主线程开始执行，触发startThread信号，子线程对象接受该信号，触发myTimeOut槽函数
+                                                                       //使该槽函数在新的线程中运行程序，从而实现两个线程同时运行
     connect(m_thread,&myThread::timeSignal,this,&MyWidget::dealSignal);
 
     connect(this,&MyWidget::destroyed,this,&MyWidget::dealClose);
