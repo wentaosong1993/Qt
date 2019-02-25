@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-12-03T14:16:52
+# Project created by QtCreator 2019-02-25T10:37:10
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = EventFilter
+TARGET = 1
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,9 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        eventfilter.cpp
+        widget.cpp
 
-HEADERS  += eventfilter.h
+HEADERS  += widget.h
 
-RESOURCES += \
-    image.qrc
+FORMS    += widget.ui
