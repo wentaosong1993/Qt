@@ -19,7 +19,7 @@ Widget::Widget(QWidget *parent) :
 
     if(!db.open())
     {
-//        QMessageBox::warning(this,QStringLiteral("message"),db.lastError().text());
+      QMessageBox::warning(this,QStringLiteral("message"),db.lastError().text());
       qDebug() << db.lastError().text();
     }
 
