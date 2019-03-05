@@ -160,7 +160,7 @@ bool CJPDialogBase::eventFilter(QObject *watched, QEvent * event)
                     {
                         QRect rect = QApplication::desktop()->availableGeometry();
 						QPoint topLeftDlgPt = mouseEvent->globalPos() - m_DragPosition;
-                        if (!rect.contains(topLeftDlgPt))
+                        if (!rect.contains(topLeftDlgPt)) //
                         {
                             QPoint topLeftPt = rect.topLeft();
                             if (topLeftDlgPt.x() < topLeftPt.x())

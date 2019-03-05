@@ -1,14 +1,2 @@
-﻿  Moc'ing mydialog.h...
-  Shadow.cpp
-  main.cpp
-  mydialog.cpp
-  moc_mydialog.cpp
-Shadow.cpp(205): warning C4100: “rcHoleOffset”: 未引用的形参
-Shadow.cpp(205): warning C4100: “rcCorner”: 未引用的形参
-Shadow.cpp(205): warning C4100: “image”: 未引用的形参
-Shadow.cpp(274): warning C4189: “pThis”: 局部变量已初始化但不引用
-mydialog.cpp(120): warning C4189: “type”: 局部变量已初始化但不引用
-mydialog.cpp(209): warning C4189: “nWidth”: 局部变量已初始化但不引用
-mydialog.cpp(210): warning C4189: “nHeight”: 局部变量已初始化但不引用
-  MyDialog.vcxproj -> D:\GitHubRepository\Qt\CustomDialog\MyDialog\debug\MyDialog.exe
-  MyDialog.vcxproj -> debug\MyDialog.pdb (Full PDB)
+﻿  mydialog.cpp
+mydialog.cpp : fatal error C1041: 无法打开程序数据库“D:\GitHubRepository\Qt\CustomDialog\MyDialog\Win32\Debug\vc140.pdb”；如果要将多个 CL.EXE 写入同一个 .PDB 文件，请使用 /FS
