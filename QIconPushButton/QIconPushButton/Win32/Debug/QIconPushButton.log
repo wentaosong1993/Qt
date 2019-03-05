@@ -1,2 +1,3 @@
-﻿  qiconpushbutton.cpp
-D:\GitHubRepository\Qt\QIconPushButton\QIconPushButton\GeneratedFiles\ui_qiconpushbutton.h(32): error C2061: 语法错误: 标识符“QIconPushButton”
+﻿  Uic'ing qiconpushbutton.ui...
+   File 'D:\GitHubRepository\Qt\QIconPushButton\QIconPushButton\qiconpushbutton.ui' is not valid
+qiconpushbutton.ui : error 1: uic (D:\QT\5.7\MSVC2015\bin\uic.exe)

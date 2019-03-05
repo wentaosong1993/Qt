@@ -1,0 +1,22 @@
+﻿  Uic'ing stylepushbutton.ui...
+  Rcc'ing res.qrc...
+  Moc'ing qiconpushbutton.h...
+  Moc'ing stylepushbutton.h...
+  Moc'ing tooltip.h...
+  main.cpp
+  qiconpushbutton.cpp
+  stylepushbutton.cpp
+  tooltip.cpp
+qiconpushbutton.cpp(6): warning C4100: “parent”: 未引用的形参
+qiconpushbutton.cpp(11): warning C4100: “parent”: 未引用的形参
+qiconpushbutton.cpp(124): warning C4100: “event”: 未引用的形参
+qiconpushbutton.cpp(170): warning C4100: “event”: 未引用的形参
+tooltip.cpp(3): warning C4100: “text”: 未引用的形参
+tooltip.cpp(3): warning C4100: “ad”: 未引用的形参
+tooltip.cpp(107): warning C4100: “event”: 未引用的形参
+  qrc_res.cpp
+  moc_qiconpushbutton.cpp
+  moc_stylepushbutton.cpp
+  moc_tooltip.cpp
+  ToolTip.vcxproj -> D:\GitHubRepository\Qt\ToolTip\ToolTip\debug\ToolTip.exe
+  ToolTip.vcxproj -> debug\ToolTip.pdb (Full PDB)
