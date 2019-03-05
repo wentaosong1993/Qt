@@ -42,7 +42,7 @@ void QIconPushButton::SetIcon(const QString &iconNormal, const QString &iconHove
     }
 }
 
-void QIconPushButton::SetText(const QString &text, const QString &styleNormal, const QString &styleHover, const QString &stylePressed)
+void QIconPushButton::sSetText(const QString &text, const QString &styleNormal, const QString &styleHover, const QString &stylePressed)
 {
     m_TextStyleNormal = styleNormal;
     m_TextStyleHover = styleHover;
