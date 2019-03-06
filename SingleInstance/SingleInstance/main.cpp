@@ -6,7 +6,7 @@
 
 
 ////单例模式--懒汉式
-/// 缺点：每次创建创建对象时都需要判断m_single是否为NULL，于无形之中会降低性能
+/// 缺点：每次创建创建对象时都需要判断m_single是否为nullptr，于无形之中会降低性能
 /// 多线程时会遇到问题，一般都会使用线程同步处理
 //class Sigleton
 //{
@@ -21,7 +21,7 @@
 //public :
 //       static Sigleton *getInstance()
 //        {
-//            if(m_single == NULL)
+//            if(m_single == nullptr)
 //            {
 //                m_single = new Sigleton;
 //            }
@@ -30,10 +30,10 @@
 
 //        static void releaseInstance()
 //        {
-//            if(m_single != NULL)
+//            if(m_single != nullptr)
 //            {
 //               delete m_single ;
-//               m_single = NULL;
+//               m_single = nullptr;
 //            }
 //        }
 
@@ -42,7 +42,7 @@
 //};
 
 
-//Sigleton * Sigleton::m_single = NULL;
+//Sigleton * Sigleton::m_single = nullptr;
 
 //int main(int argc, char *argv[])
 //{
@@ -90,7 +90,7 @@ private:
 public :
        static Sigleton *getInstance()
         {
-//            if(m_single == NULL)
+//            if(m_single == nullptr)
 //            {
 //                m_single = new Sigleton;
 //            }
@@ -99,10 +99,10 @@ public :
 
         static void releaseInstance()
         {
-            if(m_single != NULL)
+            if(m_single != nullptr)
             {
                delete m_single ;
-               m_single = NULL;
+               m_single = nullptr;
                cout << QStringLiteral("释放");
             }
         }
@@ -112,7 +112,7 @@ private:
 };
 
 
-//Sigleton * Sigleton::m_single = NULL;
+//Sigleton * Sigleton::m_single = nullptr;
 Sigleton * Sigleton::m_single =  new Sigleton;
 
 int main(int argc, char *argv[])
