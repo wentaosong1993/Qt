@@ -56,7 +56,7 @@ TimeClient::~TimeClient()
 
 void TimeClient::enableGetBtn()
 {
-    getBtn->setEnabled(!serverNameLineEdit->text().isEmpty() && !portLineEdit->text().isEmpty());
+    getBtn->setEnabled(/*!serverNameLineEdit->text().isEmpty() && */!portLineEdit->text().isEmpty());
 }
 
 void TimeClient::getTime()

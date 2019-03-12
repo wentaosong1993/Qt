@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui network
+RC_ICONS = myico.ico
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,3 +28,6 @@ SOURCES += main.cpp\
         timeclient.cpp
 
 HEADERS  += timeclient.h
+
+
+
