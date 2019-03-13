@@ -15,9 +15,9 @@ UdpClient::UdpClient(QWidget *parent, Qt::WindowFlags f)
     connect(closeBtn,SIGNAL(clicked()),this,SLOT(closeBtnClicked()));
     port = 5555;
     udpSocket = new QUdpSocket(this);
-    connect(udpSocket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
+    connect(udpSocket,SIGNAL(readyRead()),this,SLOT(dataReceived()));//接收数据
 
-    bool result = udpSocket->bind(port);
+    bool result = udpSocket->bind(port);//广播
 
     if(!result)
     {
@@ -38,7 +38,7 @@ void UdpClient::closeBtnClicked()
 
 void UdpClient::dataReceived()
 {
-    while(udpSocket->hasPendingDatagrams())
+    while(udpSocket->hasPendingDatagrams()) //有数据报等待接收
     {
         QByteArray datagram;
         datagram.resize(udpSocket->pendingDatagramSize());

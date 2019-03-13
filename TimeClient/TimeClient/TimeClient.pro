@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui network
-#RC_ICONS = myico.ico #添加应用程序图标的方法一；
+#RC_ICONS = myico.ico #添加应用程序图标的方法一
 RC_FILE = myico.rc #添加应用程序图标的方法二，在当前目录下添加*.rc文件，文件中采用固定格式，最后的文件名与当前路径下的图标文件名保持一致
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
