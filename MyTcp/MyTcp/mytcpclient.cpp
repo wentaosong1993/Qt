@@ -9,7 +9,7 @@ MyTcpClient::MyTcpClient(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(QStringLiteral("客户端"));
-    tcpSocket = NULL;
+    tcpSocket = nullptr;
 
     //创建通信套接字，指定父对象，自动内存回收
     tcpSocket = new QTcpSocket(this);
