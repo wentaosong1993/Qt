@@ -4,9 +4,10 @@
 
 MyWidget::MyWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MyWidget)
+    ui(new Ui::MyWidget)/*,m_flag(false)*/
 {
     ui->setupUi(this);
+
 
     m_thread = new myThread;
 
@@ -19,7 +20,10 @@ MyWidget::MyWidget(QWidget *parent) :
 
     connect(this,&MyWidget::startThread,m_thread,&myThread::myTimeOut);//主线程开始执行，触发startThread信号，子线程对象接受该信号，触发myTimeOut槽函数
                                                                        //使该槽函数在新的线程中运行程序，从而实现两个线程同时运行
+//    connect(this,&MyWidget::startThread,this,&MyWidget::myTimeOut);
+
     connect(m_thread,&myThread::timeSignal,this,&MyWidget::dealSignal);
+//    connect(this,&MyWidget::timeSignal,this,&MyWidget::dealSignal);
 
     connect(this,&MyWidget::destroyed,this,&MyWidget::dealClose);
 
@@ -34,7 +38,7 @@ MyWidget::MyWidget(QWidget *parent) :
 
     ///区别:
     //队列:槽函数所在的线程和接收者一样
-    //直接：槽函数坐在的线程和发送者一样
+    //直接：槽函数所在的线程和发送者一样
 
 }
 
@@ -56,6 +60,7 @@ void MyWidget::dealClose()
     delete m_thread;
     m_thread = NULL;
 }
+
 
 void MyWidget::on_startBtn_clicked()
 {
@@ -93,3 +98,22 @@ void MyWidget::on_stopBtn_clicked()
     m_qThread->quit();
     m_qThread->wait();
 }
+
+
+
+
+//void MyWidget::myTimeOut()
+//{
+//    while(m_flag == false)
+//    {
+//        QThread::sleep(1);
+//        if(true == m_flag)
+//        {
+//            break;
+//        }
+//        emit timeSignal();
+////        QMessageBox::aboutQt(NULL);
+////error: ASSERT failure in QWidget: "Widgets must be created in the GUI thread.", file kernel\qwidget.cpp, line 1150
+////        qDebug() << QStringLiteral("子线程号:") << QThread::currentThread();
+//    }
+//}

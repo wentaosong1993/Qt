@@ -19,8 +19,10 @@ public:
 
     void dealSignal();
     void dealClose();
+//    void myTimeOut();
 signals:
     void startThread(); //启动子线程的信号
+//    void timeSignal();
 
 private slots:
     void on_startBtn_clicked();
@@ -32,6 +34,7 @@ private:
 
     myThread *m_thread;
     QThread *m_qThread;
+//    bool m_flag;
 };
 
 #endif // MYWIDGET_H
