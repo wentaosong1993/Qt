@@ -79,6 +79,8 @@ Dialog::Dialog(QWidget *parent)
     mainLayout->addLayout(buttonLayout, 1, 0, 1, 2);
     mainLayout->setSizeConstraint(QLayout::SetFixedSize);
 
+    connect(okBtn,SIGNAL(clicked()),this,SLOT(okButtonClick()));
+
 }
 
 Dialog::~Dialog()

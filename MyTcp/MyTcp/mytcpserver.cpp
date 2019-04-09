@@ -7,8 +7,8 @@ MyTcpServer::MyTcpServer(QWidget *parent) :
     ui(new Ui::MyTcpServer)
 {
     ui->setupUi(this);
-    tcpServer = NULL;
-    tcpSocket = NULL;
+    tcpServer = nullptr;
+    tcpSocket = nullptr;
 
     setWindowTitle(QStringLiteral("服务器端:8888"));
     //指定父对象，自动回收内存空间
@@ -22,7 +22,7 @@ MyTcpServer::MyTcpServer(QWidget *parent) :
         tcpSocket = tcpServer->nextPendingConnection();
         //获取对方的ip和端口号
         QString ip = tcpSocket->peerAddress().toString();
-        qint16 port= tcpSocket->peerPort();
+        qint32 port= tcpSocket->peerPort();
 		QString temp = QString("[%1 : %2]").arg(ip).arg(port) + QStringLiteral("成功连接!");
         ui->textEditRead->setText(temp);
 
@@ -45,7 +45,7 @@ MyTcpServer::~MyTcpServer()
 
 void MyTcpServer::on_sendBtn_clicked()
 {
-    if(NULL == tcpSocket)
+    if(nullptr == tcpSocket)
     {
         return;
     }
@@ -56,13 +56,13 @@ void MyTcpServer::on_sendBtn_clicked()
 
 void MyTcpServer::on_closeBtn_clicked()
 {
-    if(NULL == tcpSocket)
+    if(nullptr == tcpSocket)
     {
 //        qApp->quit();
         return;
     }
     tcpSocket->disconnectFromHost();
     tcpSocket->close();
-    tcpSocket = NULL;
+    tcpSocket = nullptr;
 //    qApp->quit();
 }

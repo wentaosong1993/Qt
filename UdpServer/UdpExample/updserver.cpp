@@ -20,7 +20,7 @@ UdpServer::UdpServer(QWidget *parent, Qt::WindowFlags f)
     mainLayout->addWidget(startBtn);
 
     connect(startBtn,SIGNAL(clicked()),this,SLOT(startBtnClicked()));
-    port = 5555;
+    port = 5555; //初始化端口
     isStarted = false;
     udpSocket = new QUdpSocket(this);
     timer = new QTimer(this);
@@ -55,7 +55,7 @@ void UdpServer::timerOut()
     {
         return;
     }
-    if(udpSocket->writeDatagram(msg.toLatin1(),msg.length(),QHostAddress::Broadcast,port) != msg.length())
+    if(udpSocket->writeDatagram(msg.toLatin1(),msg.length(),QHostAddress::Broadcast,port) != msg.length()) //发送数据报
     {
         return;
     }

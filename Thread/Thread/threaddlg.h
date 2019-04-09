@@ -5,7 +5,7 @@
 #include <QPushButton>
 
 #include "workthread.h"
-#define MAXSIZE 1
+#define MAXSIZE 2
 
 
 class ThreadDlg : public QDialog

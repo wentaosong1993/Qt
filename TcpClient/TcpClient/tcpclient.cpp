@@ -74,6 +74,7 @@ void TcpClient::slotEnter()
     else
     {
         int length = 0;
+        enterBtn->setText(QStringLiteral("进入"));
         QString msg = userName + QStringLiteral(":Leave Chat Room");
         if(length = tcpSocket->write(msg.toLatin1(),msg.length()) != msg.length())
         {

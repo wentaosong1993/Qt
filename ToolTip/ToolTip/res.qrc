@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/help_hov.png</file>
+        <file>Image/help_nor.png</file>
+        <file>Image/help_pre.png</file>
+    </qresource>
+</RCC>

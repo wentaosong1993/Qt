@@ -1,0 +1,2 @@
+﻿  widget.cpp
+widget.cpp(33): error C3490: 由于正在通过常量对象访问“value”，因此无法对其进行修改
