@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/close_hover.png</file>
+        <file>Resources/close_nor.png</file>
+        <file>Resources/close_press.png</file>
+        <file>Resources/max_hover.png</file>
+        <file>Resources/max_nor.png</file>
+        <file>Resources/max_press.png</file>
+        <file>Resources/min_hover.png</file>
+        <file>Resources/min_nor.png</file>
+        <file>Resources/min_press.png</file>
+        <file>Resources/mml_logo.png</file>
+    </qresource>
+</RCC>
