@@ -35,6 +35,8 @@ public:
 
 protected:
     bool eventFilter(QObject *watched, QEvent * event);
+	//void enterEvent(QEvent *event);
+	//void leaveEvent(QEvent *event);
 
 
 protected slots:
@@ -50,6 +52,7 @@ private:
     Direction	m_direction;
 
     bool		m_bMax;
+	bool	    m_bNor;
 
     QScopedPointer<CBaseContrlImpl>	m_baseContrlImpl;
 };

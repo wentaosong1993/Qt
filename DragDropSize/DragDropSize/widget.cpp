@@ -96,6 +96,7 @@ Widget::Widget(QWidget *parent) :
     m_bDrag = false;
     m_direction = NONE;
     m_bMax = false;
+	m_bNor = true;
     this->setMinimumSize(600,400);
 
     this->setTitle(QStringLiteral("定制弹框-支持鼠标拖动以及缩放"));
@@ -210,11 +211,7 @@ bool Widget::eventFilter(QObject *watched, QEvent *event)
                     else
                     {
                         //拖动时如果是最大化,先最小化窗口
-                        m_DragPosition = mouseEvent->globalPos() - this->frameGeometry().topLeft();
-                        if(m_bMax)
-                        {
-                             setNormal();
-                        }
+                        m_DragPosition = mouseEvent->globalPos() - this->frameGeometry().topLeft(); 
                     }
                     return true;
                 }
@@ -271,8 +268,6 @@ bool Widget::eventFilter(QObject *watched, QEvent *event)
                             QPoint rb = mapToGlobal(rect.bottomRight());
 
                             QRect rMove(tl, rb);
-                            int nWidth = this->minimumWidth();
-                            int nHeight = this->minimumHeight();
                             switch (m_direction)
                             {
                             case LEFT:
@@ -344,14 +339,22 @@ bool Widget::eventFilter(QObject *watched, QEvent *event)
             break;
         case QEvent::MouseButtonDblClick:
         {
-            if (m_bMax)
-            {
-                setDlgMin();
-            }
-            else
-            {
-                setDlgMax();
-            }
+			if (watched == m_baseContrlImpl->frame_title)
+			{
+				//最大化时bMax = true,bNor = false;
+				if (!m_bNor && m_bMax)
+				{
+					setNormal();
+					return true;
+				}
+				//bNor = true时，bMax = false;
+				else if (m_bNor && !m_bMax)
+				{
+					setDlgMax();
+					return true;
+				}
+				else {}
+			}
             break;
         }
         default:
@@ -360,6 +363,20 @@ bool Widget::eventFilter(QObject *watched, QEvent *event)
 
         return __super::eventFilter(watched, event);
 }
+
+//void Widget::enterEvent(QEvent * event)
+//{
+//	QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+//	getRegion(mouseEvent->globalPos());
+//	__super::enterEvent(event);
+//}
+//
+//void Widget::leaveEvent(QEvent * event)
+//{
+//	QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+//	getRegion(mouseEvent->globalPos());
+//	__super::enterEvent(event);
+//}
 
 void Widget::setDlgMin()
 {
@@ -373,17 +390,26 @@ void Widget::setDlgMax()
         this->setWindowState(Qt::WindowMaximized);
         m_baseContrlImpl->btn_max->setChecked(!m_bMax);
         m_baseContrlImpl->btn_max->setToolTip(QString::fromLocal8Bit("还原"));
+		m_bNor = false;
+		m_bMax = true;
     }
     else
     {
         this->setWindowState(Qt::WindowNoState);
-        m_baseContrlImpl->btn_max->setChecked(!m_bMax);
+        m_baseContrlImpl->btn_max->setChecked(m_bMax);
         m_baseContrlImpl->btn_max->setToolTip(QString::fromLocal8Bit("最大化"));
+		m_bNor = true;
+		m_bMax = false;
     }
-    m_bMax = !m_bMax;
+    //m_bMax = !m_bMax;
 }
 
 void Widget::setNormal()
 {
-    this->setWindowState(Qt::WindowNoState);
+	this->setWindowState(Qt::WindowNoState);
+	m_baseContrlImpl->btn_max->setChecked(m_bMax);
+	m_baseContrlImpl->btn_max->setToolTip(QString::fromLocal8Bit("最大化"));
+	//m_bMax = !m_bMax;
+	m_bNor = true;
+	m_bMax = false;
 }
