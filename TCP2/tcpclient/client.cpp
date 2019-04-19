@@ -74,7 +74,7 @@ void Client::startTransfer()
     sendOut << totalBytes << qint64((outBlock.size() - sizeof(qint64)*2));
              //totalBytes << currentFileName
     // 发送完文件头结构后剩余数据的大小
-    bytesToWrite = totalBytes - tcpClient->write(outBlock);
+    bytesToWrite = totalBytes - tcpClient->write(outBlock);//发送文件头数据
 
     ui->clientStatusLabel->setText(QStringLiteral("已连接"));
     outBlock.resize(0);
@@ -93,7 +93,7 @@ void Client::updateClientProgress(qint64 numBytes)
         outBlock = localFile->read(qMin(bytesToWrite, payloadSize));
 
         // 发送完一次数据后还剩余数据的大小
-        bytesToWrite -= (int)tcpClient->write(outBlock);
+        bytesToWrite -= (int)tcpClient->write(outBlock);//发送文件数据
 
         // 清空发送缓冲区
         outBlock.resize(0);
