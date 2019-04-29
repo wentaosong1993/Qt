@@ -27,11 +27,11 @@ ModalWidget::ModalWidget(QWidget *parent)
 	//dialog->show();
 
 
-	dialog.setFixedSize(200, 100);
-	textEdit.setParent(&dialog);
+	//dialog.setFixedSize(200, 100);
+	//textEdit.setParent(&dialog);
 
-	dialog.setModal(true);//相对当前应用程序的其他窗口是模态的
-	dialog.show();
+	//dialog.setModal(true);//相对当前应用程序的其他窗口是模态的
+	//dialog.show();
 
 
 }

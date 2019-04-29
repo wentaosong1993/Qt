@@ -1,6 +1,2 @@
-﻿  Moc'ing modalwidget.h...
-  main.cpp
-  modalwidget.cpp
-  qrc_modalwidget.cpp
-  moc_modalwidget.cpp
+﻿  main.cpp
   ModalWidget.vcxproj -> D:\GitHubRepository\Qt\ModalWidget\ModalWidget\Win32\Release\ModalWidget.exe
