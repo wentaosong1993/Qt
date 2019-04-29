@@ -39,3 +39,4 @@ CMakeLists.txt.user*
 
 DataBase/dataBase1/widget.cpp
 DataBase/dataBase1/dataBase1.pro
+ModalWidget/ModalWidget/ModalWidget.VC.VC.opendb
