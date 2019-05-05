@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FileDragDropClass</class>
+ <widget class="QMainWindow" name="FileDragDropClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FileDragDrop</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="DropTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>DropTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header location="global">mytextedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="filedragdrop.qrc"/>
+ </resources>
+ <connections/>
+</ui>
