@@ -1,3 +1,3 @@
 ﻿  mytextedit.cpp
-  FileDragDrop.vcxproj -> D:\GitHubRepository\Qt\FileDragDrop\FileDragDrop\Win32\Debug\FileDragDrop.exe
-  FileDragDrop.vcxproj -> D:\GitHubRepository\Qt\FileDragDrop\FileDragDrop\Win32\Debug\FileDragDrop.pdb (Full PDB)
+mytextedit.cpp(103): error C2144: 语法错误:“void”的前面应有“;”
+mytextedit.cpp(103): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int

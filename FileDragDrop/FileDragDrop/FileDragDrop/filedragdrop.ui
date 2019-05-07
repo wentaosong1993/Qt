@@ -15,8 +15,15 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+    <property name="topMargin">
+     <number>9</number>
+    </property>
     <item row="0" column="0">
-     <widget class="DropTextEdit" name="textEdit"/>
+     <widget class="DropTextEdit" name="textEdit">
+      <property name="styleSheet">
+       <string notr="true">.QTextEdit{padding: 10px;}</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

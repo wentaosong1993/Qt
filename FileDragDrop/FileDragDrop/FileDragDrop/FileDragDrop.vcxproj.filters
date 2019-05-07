@@ -33,18 +33,21 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mytextedit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="filedragdrop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mytextedit.cpp">
+    <ClCompile Include="flowlayout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="filedragdrop.h">
+    <QtMoc Include="mytextedit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="mytextedit.h">
+    <QtMoc Include="filedragdrop.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -57,5 +60,10 @@
     <QtRcc Include="filedragdrop.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="flowlayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
