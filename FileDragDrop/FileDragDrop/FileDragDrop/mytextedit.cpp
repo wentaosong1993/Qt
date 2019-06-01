@@ -109,7 +109,7 @@ void DropTextEdit::dropEvent(QDropEvent *e)
 {
 	const QMimeData* mimeData = e->mimeData();
 	if (mimeData->hasUrls())
-	{s
+    {
 		QList<QUrl> urlList = mimeData->urls();
 		QString fileName = QString("");
 		//m_flowLayout = new FlowLayout(this,4,10,3);
