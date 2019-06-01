@@ -1,0 +1,15 @@
+﻿  Generate moc_predefs.h
+  Moc'ing filedragdrop.h...
+  Moc'ing mytextedit.h...
+  Uic'ing filedragdrop.ui...
+  filedragdrop.cpp
+  flowlayout.cpp
+  main.cpp
+  mytextedit.cpp
+f:\githubrepository\qt\filedragdrop\filedragdrop\filedragdrop\mytextedit.cpp(5): warning C4100: “parent”: 未引用的形参
+f:\githubrepository\qt\filedragdrop\filedragdrop\filedragdrop\mytextedit.cpp(64): warning C4100: “event”: 未引用的形参
+f:\githubrepository\qt\filedragdrop\filedragdrop\filedragdrop\mytextedit.cpp(69): warning C4100: “event”: 未引用的形参
+f:\githubrepository\qt\filedragdrop\filedragdrop\filedragdrop\mytextedit.cpp(76): warning C4100: “parent”: 未引用的形参
+  moc_filedragdrop.cpp
+  moc_mytextedit.cpp
+  FileDragDrop.vcxproj -> F:\GitHubRepository\Qt\FileDragDrop\FileDragDrop\x64\Debug\FileDragDrop.exe
