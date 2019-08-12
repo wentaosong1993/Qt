@@ -55,6 +55,8 @@ public: // overrider 重写父类
     /** 获取索引 */
     QModelIndex index(int row, int column, const QModelIndex &parent) const Q_DECL_OVERRIDE;
 
+private:
+//    QAbstractTableModel *m_tableModel = nullptr;
 };
 
 #endif // TABLEMODEL_H

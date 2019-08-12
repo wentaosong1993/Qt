@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTableView>
+#include "tablemodel.h"
 
 class TableViewDemo : public QWidget
 {
@@ -11,6 +12,11 @@ class TableViewDemo : public QWidget
 public:
     TableViewDemo(QWidget *parent = 0);
     ~TableViewDemo();
+
+private:
+    TableModel *tableModel = nullptr;
+
+    QTableView *tableView = nullptr;
 };
 
 #endif // TABLEVIEWDEMO_H

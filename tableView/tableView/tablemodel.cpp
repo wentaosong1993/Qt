@@ -1,8 +1,15 @@
 ﻿#include "tablemodel.h"
 
-TableModel::TableModel()
+TableModel::TableModel(QObject *parent)
+    :QAbstractTableModel(parent)
 {
+//    m_tableModel = new TableModel;
+}
 
+TableModel::~TableModel()
+{
+//    delete m_tableModel;
+//    m_tableModel = nullptr;
 }
 
 QVariant TableModel::data(const QModelIndex &index, int role) const
@@ -22,7 +29,7 @@ Qt::ItemFlags TableModel::flags(const QModelIndex &index) const
 
 QVariant TableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    return data(section, role);
+    return headerData(section, orientation, role);
 }
 
 int TableModel::rowCount(const QModelIndex &parent) const
@@ -90,7 +97,7 @@ bool TableModel::insertRows(int position, int rows, const QModelIndex &parent)
     bool success = false;
 
     beginInsertRows(parent, position, position + rows - 1);
-    success = insertRows(position, rows, this->columnCount());
+    success = insertRows(position, rows, parent);
     endInsertRows();
 
     return success;
@@ -119,5 +126,5 @@ QModelIndex TableModel::index(int row, int column, const QModelIndex &parent) co
         return QModelIndex();
     }
 
-    return createIndex(row, column, parent);
+    return createIndex(row, column, (void*)nullptr);
 }
